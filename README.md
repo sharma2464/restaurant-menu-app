@@ -1,5 +1,31 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Restaurant Menu Webapp Demo using [React](https://www.reactjs.org)
+> This is a very small web app that lets you navigate, and *select you choices from the restaurant menu*.
+
+## Technologies used
+
+> ***On the front-end***
+
+- Used React and all the files are in the `app/components`
+- Assets on the webapp are managed in / by the `assets` container
+
+> ***On the back-end***
+
+- App uses [NodeJS](https://www.nodejs.org) for backend.
+- Server file can be edited at `server.js` in the root directory.
+- Added frameworks and packages are in `package.json` in the root directory
+- All the credentials and environment variables are stored in `.env` file. (can be shared with invites)
+
+***
+## [Glitch](https://glitch.com/)
+
+- Thanks to [Glitch](https://glitch.com/).
+- Glitch is the friendly commmunity where you'll build the app of your dreams.
+- Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+- [Find out more](https://glitch.com/about)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
