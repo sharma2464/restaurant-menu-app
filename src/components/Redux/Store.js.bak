@@ -1,0 +1,9 @@
+// Redux Store
+// import { ActionReducer } from './Reducers'
+
+export const defaultState = {
+  count: 0,
+  itemName: 'Pastry'
+}
+
+export default defaultState
