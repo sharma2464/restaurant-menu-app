@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
@@ -8,11 +9,9 @@ const Api = () => {
 
   const [selected, setSelected] = useState('<Select item above>')
 
-  // const item = () => Dishes.find(e => e.name == selected).name
-
   const [state, setState] = useState({
     Name: '',
-    Price: '',
+    Price: 0,
     ImgURL: '',
     Description: '',
     IsVeg: false,
@@ -24,10 +23,16 @@ const Api = () => {
     Cuisine: ''
   })
 
+  var items = ''
+
   const selectItem = event => {
     setSelected(event.target.value)
+    items = Dishes.find(e => e.name === "Pastry")
+    fillData()
+  }
+  const fillData = () => {
     setState({
-      Name: Dishes.find(e => e.name == selected)
+      Name: items
     })
   }
 
@@ -36,26 +41,26 @@ const Api = () => {
       <div className='card-header clearfix'>
         <strong>CMS Page</strong>
         <pre>Update your menu data through this page</pre>
-      </div>
 
-      {state.Name}
-      {/* ---------------- */}
+        {state.Name}
+        {/* ---------------- */}
 
-      <div className='container bg-warning text-dark pt-2 pb-2'>
-        <label for='selectItem'>Select item to edit</label>
-        <select
-          className='form-control'
-          id='selectItem'
-          text='checkbox'
-          onChange={selectItem}
-          required>
-          <option value='<Select item above>' selected>
-            Choose...
-          </option>
-          {Dishes.map(e => (
-            <option value={e.name}>{e.name}</option>
-          ))}
-        </select>
+        <div className='container bg-warning text-dark pt-2 pb-2'>
+          <label for='selectItem'>Select item to edit</label>
+          <select
+            className='form-control'
+            id='selectItem'
+            text='checkbox'
+            onChange={selectItem}
+            required>
+            <option value='<Select item above>' selected>
+              Choose...
+            </option>
+            {Dishes.map(e => (
+              <option value={e.name}>{e.name}</option>
+            ))}
+          </select>
+        </div>
       </div>
 
       {/* ---------------- */}
