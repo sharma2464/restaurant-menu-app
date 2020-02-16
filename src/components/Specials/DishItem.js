@@ -1,22 +1,43 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
-import { useParams } from 'react-router'
+import { useParams /* useRouteMatch */ } from 'react-router-dom'
+import _ from 'lodash'
+
+import { Dishes } from './Dishes'
+
 // import _ from 'lodash'
 // import {Route} from 'react-router-dom'
 // import Dishes from './dishes'
 
 const DishItem = () => {
-  const { dish } = useParams()
-  //     const findItem = () => {
-  //       return Dishes.find(item => item.name === _.startCase(handle)).name
-  //     }
-  //   const findItem = property => {
-  //     return Dishes[_.startCase(handle)]
-  //   }
+  const { dishName } = useParams()
 
-  return <div>hey {dish}</div>
+  const currentDish = Dishes.find(item => {
+    if (item.name === _.startCase(dishName)) {
+      return item.name
+    }
+  })
+
+  return (
+    <div>
+      <h1>Hey</h1>
+      <code>{dishName}</code>
+      <code>{currentDish}</code>
+    </div>
+  )
 }
 export default DishItem
+
+// <code>
+//   {Object.keys().map(e => (
+//     <li>{e}</li>
+//   ))}
+// </code> */}
+// {/* <code>
+//   {Object.keys(props.match).map(e => (
+//     <li>{e}</li>
+//   ))}
+// </code>
 
 //   const myDish = property => {
 //     for (var i = 0; i < Dishes.length; i++) {

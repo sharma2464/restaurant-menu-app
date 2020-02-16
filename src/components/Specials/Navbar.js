@@ -15,11 +15,13 @@ function Navbar({ cart }) {
           <Link className='btn btn-sm btn-warning' to='/api'>
             <i className='fas fa-user'></i>
           </Link>
-          <Link 
-          className='btn btn-sm btn-outline-warning text-dark' 
-          to='/cart'
-          {...cart}
-          >
+          {/* <Link className='btn btn-sm btn-outline-warning text-dark' to='/cart'> */}
+          <Link
+            className='btn btn-sm btn-outline-warning text-dark'
+            to={{
+              pathname: '/cart',
+              items: `${cart.count}`
+            }}>
             <span className='badge badge-pill badge-success'>
               {cart.count !== 0 ? cart.count : null}
             </span>

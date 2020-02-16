@@ -14,6 +14,7 @@ import reducer from './components/Redux/Reducers'
 import Cart from './components/Specials/Cart'
 import DishItem from './components/Specials/DishItem'
 import * as serviceWorker from './serviceWorker'
+import Navbar from './components/Specials/Navbar'
 // import App from './components/App'
 // import './styles/index.css'
 
@@ -21,22 +22,25 @@ const Store = createStore(reducer, applyMiddleware(thunk))
 
 render(
   <Router>
-    <Switch>
-      <Provider store={Store}>
-        <Route exact path='/'>
-          <Container />
-        </Route>
-        <Route exact path='/dish:any'>
-          <DishItem />
-        </Route>
-        <Route exact path='/cart'>
-          <Cart />
-        </Route>
-        <Route exact path='/api/'>
-          <Api />
-        </Route>
-      </Provider>
-    </Switch>
+    <div>
+      <Navbar cart={{ count: 1 }} />
+      <Switch>
+        <Provider store={Store}>
+          <Route exact path='/'>
+            <Container />
+          </Route>
+          <Route path='/dish/:dishName'>
+            <DishItem />
+          </Route>
+          <Route path='/cart'>
+            <Cart />
+          </Route>
+          <Route exact path='/api'>
+            <Api />
+          </Route>
+        </Provider>
+      </Switch>
+    </div>
   </Router>,
   document.getElementById('root')
 )

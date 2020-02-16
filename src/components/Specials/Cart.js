@@ -1,11 +1,13 @@
 import React from 'react'
+import { useParams, useRouteMatch } from 'react-router-dom'
 
-const Cart = ({ ...cart }) => {
+const Cart = props => {
   const handleClick = () => {}
 
   return (
     <div className='container'>
-      <p>Count: {cart.count} : </p>
+      <h1>Hello </h1>
+      <p>Count: : </p>
       <button onClick='' value='increase'>
         +
       </button>

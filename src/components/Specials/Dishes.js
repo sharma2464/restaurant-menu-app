@@ -1,4 +1,4 @@
-const items = [
+const Dishes = [
   {
     id: 1,
     name: 'Palak Paneer',
@@ -60,4 +60,4 @@ const items = [
   }
 ]
 
-export default items
+export default Dishes

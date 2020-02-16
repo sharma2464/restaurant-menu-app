@@ -3,11 +3,10 @@ import React from 'react'
 import { Link, useRouteMatch, useParams } from 'react-router-dom'
 
 const Api = () => {
-  const match = useParams()
-  // const match = useRouteMatch()
+  // const match = useParams()
+  const match = useRouteMatch()
 
   return (
-    <div className='container'>
       <div className='card'>
         <div className='card-header clearfix'>
           <h3>CMS Page</h3>
@@ -117,7 +116,6 @@ const Api = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Dishes from './dishes'
+import Dishes from './Dishes'
 
 function TodaysSpecial() {
   // const [state, setState] = useState(0)
@@ -19,9 +19,14 @@ function TodaysSpecial() {
 
       <div
         className='card-body d-flex flex-row'
-        style={{ overflowY: 'scroll' }}>
-        {Dishes.map(item => (
-          <Link to={'dish/' + _.kebabCase(item.name)} className='mr-2'>
+        style={{ overflowY: 'hidden' }}>
+        {Dishes.map((item, id) => (
+          <Link
+            to={{
+              pathname: `dish/${_.kebabCase(item.name)}`,
+              itemName: { name: `${item.name}` }
+            }}
+            className='mr-2'>
             <img
               src={item.imgUrl}
               className='rounded'
@@ -35,7 +40,9 @@ function TodaysSpecial() {
               alt='specials'
             />
 
-            <p className='text-dark'>{item.name}</p>
+            <p className='text-dark' key={id}>
+              {item.name}
+            </p>
           </Link>
         ))}
       </div>

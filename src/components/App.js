@@ -3,19 +3,16 @@ import { connect } from 'react-redux'
 // import { addCart, removeCart } from './Redux/Actions'
 
 // import Api from '../api'
-import Navbar from './Specials/Navbar'
 import TodaysSpecial from './Specials/TodaysSpecial'
 import Courses from './Specials/Courses'
 
 function App() {
-
   return (
-    <div className='container'>
-      <Navbar cart={{ count: 1 }} />
+    <div>
       <TodaysSpecial />
       <Courses />
     </div>
-    //  malolan.s@careator.com 
+    //  malolan.s@careator.com
   )
 }
 
