@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React from 'react'
-import { useParams /* useRouteMatch */ } from 'react-router-dom'
 import _ from 'lodash'
-
-import { Dishes } from './Dishes'
+import React, { useState } from 'react'
+import { useParams /* useRouteMatch */ } from 'react-router-dom'
+import Dishes from './Dishes'
 
 // import _ from 'lodash'
 // import {Route} from 'react-router-dom'
@@ -11,82 +10,78 @@ import { Dishes } from './Dishes'
 
 const DishItem = () => {
   const { dishName } = useParams()
+  const [counter, setCounter] = useState(0)
 
-  const currentDish = Dishes.find(item => {
-    if (item.name === _.startCase(dishName)) {
-      return item.name
-    }
-  })
+  const currentDish = Dishes.find(item => item.name === _.startCase(dishName))
+
+  const handleAdd = () => {
+    setCounter(counter + 1)
+  }
+  const handleRemove = () => {
+    counter > 0 ? setCounter(counter - 1) : setCounter(0)
+  }
 
   return (
     <div>
-      <h1>Hey</h1>
-      <code>{dishName}</code>
-      <code>{currentDish}</code>
-    </div>
-  )
-}
-export default DishItem
-
-// <code>
-//   {Object.keys().map(e => (
-//     <li>{e}</li>
-//   ))}
-// </code> */}
-// {/* <code>
-//   {Object.keys(props.match).map(e => (
-//     <li>{e}</li>
-//   ))}
-// </code>
-
-//   const myDish = property => {
-//     for (var i = 0; i < Dishes.length; i++) {
-//       if (Dishes[i].property === property) {
-//         return Dishes[i].property
-//       }
-//     }
-//   }
-
-//   const findItem = (data = Dishes, property) => {
-//     data.forEach(item => {
-//       if (item.name === _.startCase(handle)) {
-//         return item.property
-//       }
-//     })
-//   }
-
-/*
-        <div className='card clearfix'>
-        <p>{dishItem('name')}</p>
-        <p>{myDish('name')}</p> 
-        <p>{findItem('name')}</p>
-  
-        <p className='card-header'>
-          Add to My Plate
+      <div className='card clearfix'>
+        <div className='card-header'>
+          <strong>Add to My Plate</strong>
           <a className='float-right' href='/'>
             <i className='fas fa-times'></i>
           </a>
-        </p>
-        <div className='card-body d-flex flex-row'>
-        <img
-          src={dishItem(imgUrl)}
-          className='rounded'
-          style={{
-            borderBottom: handle.isVeg
-              ? '3px solid limegreen'
-              : '3px solid orangered'
-          }}
-          width='100px'
-          height='100px'
-          alt='specials'
-        />
         </div>
-        
-        
-        {Route.fetch('url')
-        .then(res => res.json())
-        .then(e => (
-          <p>{e}</p>
-          ))} 
+
+        <div className='row'>
+          <div className='card-body'>
+            <img
+              src={currentDish.imgUrl}
+              className='rounded'
+              style={{
+                borderBottom: currentDish.isVeg
+                  ? '3px solid limegreen'
+                  : '3px solid orangered',
+                width: '100px',
+                height: '100px',
+                margin: 'auto'
+              }}
+              alt='specials'
+            />
           </div>
-          */
+          <div className='col-8 card-body bg-light'>
+            <h4 className=''>{currentDish.name}</h4>
+            {currentDish.isAvailable ? (
+              <div>
+                <button
+                  className='btn btn-sm btn-warning pr-3 pl-3'
+                  onClick={handleRemove}>
+                  -
+                </button>
+                <strong className='mr-3 ml-3'>{counter}</strong>
+                <button
+                  className='btn btn-sm btn-warning pr-3 pl-3'
+                  onClick={handleAdd}>
+                  +
+                </button>
+                <button className='btn btn-sm btn-dark ml-3'>
+                  <i className='fas fa-plus mr-2'></i>Add
+                </button>
+              </div>
+            ) : (
+              <p className='badge badge-warning'>Out of Stock</p>
+            )}
+            <div className='mt-2'>
+              {currentDish.isVeg ? (
+                <p className='badge badge-pill badge-success'>Vegetarian</p>
+              ) : (
+                <p className='badge badge-pill badge-danger'>Non Vegetarian</p>
+              )}
+            </div>
+          </div>
+          <p className='card-footer bg-warning'>{currentDish.description}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default DishItem

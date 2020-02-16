@@ -4,10 +4,10 @@ function Courses() {
   const courseItems = ['Starters', 'Main Courses', 'Desserts', 'Beverages']
 
   return (
-    <div className='card mt-2 clearfix'>
+    <div className='card clearfix'>
       <div className='card-header'>
         
-          Courses
+          <strong>Courses</strong>
           <a className='float-right' href='##'>
             See all
           </a>

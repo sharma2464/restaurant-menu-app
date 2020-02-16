@@ -5,8 +5,10 @@ const Cart = props => {
   const handleClick = () => {}
 
   return (
-    <div className='container'>
-      <h1>Hello </h1>
+    <div className='card'>
+      <div className='card-header'>
+        <strong>Your plate</strong>
+      </div>
       <p>Count: : </p>
       <button onClick='' value='increase'>
         +

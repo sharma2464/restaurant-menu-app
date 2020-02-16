@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 function Navbar({ cart }) {
   return (
-    <div>
+    <div className="sticky-top">
       <nav className='navbar bg-light'>
         <button className='btn btn-sm btn-warning'>
           <span className='fas fa-bars'></span>
         </button>
         <Link to='/' className='navbar-brand'>
-          FOOD MENU
+          <strong>FOOD MENU</strong>
         </Link>
         <div className='btn-group'>
           <Link className='btn btn-sm btn-warning' to='/api'>

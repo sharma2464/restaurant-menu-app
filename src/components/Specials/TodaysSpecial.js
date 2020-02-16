@@ -7,10 +7,10 @@ function TodaysSpecial() {
   // const [state, setState] = useState(0)
 
   return (
-    <div className='card mt-2 clearfix'>
+    <div className='card clearfix'>
       <div>
         <p className='card-header'>
-          Today's Special
+          <strong>Today's Special</strong>
           <a className='float-right' href='##'>
             See all
           </a>
