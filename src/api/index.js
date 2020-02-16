@@ -1,15 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Link, useRouteMatch /* useParams */ } from 'react-router-dom'
+import { Link, useRouteMatch, useParams } from 'react-router-dom'
 
 const Api = () => {
-  const match = useRouteMatch()
+  const match = useParams()
+  // const match = useRouteMatch()
 
   return (
     <div className='container'>
       <div className='card'>
         <div className='card-header clearfix'>
           <h3>CMS Page</h3>
+          <code>URL: {match.url}</code><br/>
+          <code>PATH: {match.path}</code>
+          <h3>
+            {Object.keys(match).map(e => (
+              <li>{e}</li>
+            ))}
+          </h3>
           <p>Upload data to the app through this page</p>
         </div>
 

@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
+import { useParams } from 'react-router'
 // import _ from 'lodash'
 // import {Route} from 'react-router-dom'
 // import Dishes from './dishes'
 
-const DishItem = (props) => {
-const dish = props.match.params 
+const DishItem = () => {
+  const { dish } = useParams()
   //     const findItem = () => {
   //       return Dishes.find(item => item.name === _.startCase(handle)).name
   //     }
@@ -13,7 +14,7 @@ const dish = props.match.params
   //     return Dishes[_.startCase(handle)]
   //   }
 
-return <div>hey {dish}</div>
+  return <div>hey {dish}</div>
 }
 export default DishItem
 
